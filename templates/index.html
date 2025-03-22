@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .title }}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="/">
+                    <i class="fas fa-money-bill-wave"></i> FinTech App
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <a href="/" class="active">Dashboard</a>
+                <a href="/transactions">Transactions</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>GoFinTech</h1>
+            <p>This is sorta a copy of a budget app I created with express, node and mysql, but this time I decided to use Golang as my backend with MongoDB as my database</p>
+            <a href="/transactions" class="btn btn-primary">Manage Transactions</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="cards">
+            <div class="card">
+                <div class="card-icon income">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Total Income</h3>
+                    <p class="amount" id="total-income">$0.00</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon expense">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Total Expenses</h3>
+                    <p class="amount" id="total-expense">$0.00</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon balance">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Balance</h3>
+                    <p class="amount" id="balance">$0.00</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="recent-transactions">
+            <div class="section-header">
+                <h2>Recent Transactions</h2>
+                <a href="/transactions" class="btn btn-sm">View All</a>
+            </div>
+            <div class="transaction-list" id="recent-transactions">
+                <!-- Transactions will be loaded here via JavaScript -->
+                <div class="empty-state">
+                    <i class="fas fa-receipt"></i>
+                    <p>No transactions yet</p>
+                    <a href="/transactions" class="btn btn-primary">Add Transaction</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; GoLang FinTech App. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html> 

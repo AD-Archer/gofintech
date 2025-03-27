@@ -42,53 +42,55 @@
         </div>
     </header>
 
-    <main class="container">
-        <section class="cards">
-            <div class="card">
-                <div class="card-icon income">
-                    <i class="fas fa-arrow-down"></i>
+    <main>
+        <div class="container">
+            <section class="cards">
+                <div class="card">
+                    <div class="card-icon income">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Income</h3>
+                        <p class="amount" id="total-income">$0.00</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3>Total Income</h3>
-                    <p class="amount" id="total-income">$0.00</p>
+                
+                <div class="card">
+                    <div class="card-icon expense">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Expenses</h3>
+                        <p class="amount" id="total-expense">$0.00</p>
+                    </div>
                 </div>
-            </div>
+                
+                <div class="card">
+                    <div class="card-icon balance">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Balance</h3>
+                        <p class="amount" id="balance">$0.00</p>
+                    </div>
+                </div>
+            </section>
             
-            <div class="card">
-                <div class="card-icon expense">
-                    <i class="fas fa-arrow-up"></i>
+            <section class="recent-transactions">
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                    <a href="/transactions" class="btn btn-sm">View All</a>
                 </div>
-                <div class="card-content">
-                    <h3>Total Expenses</h3>
-                    <p class="amount" id="total-expense">$0.00</p>
+                <div class="transaction-list" id="recent-transactions">
+                    <!-- Transactions will be loaded here via JavaScript -->
+                    <div class="empty-state">
+                        <i class="fas fa-receipt"></i>
+                        <p>No transactions yet</p>
+                        <a href="/transactions" class="btn btn-primary">Add Transaction</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon balance">
-                    <i class="fas fa-wallet"></i>
-                </div>
-                <div class="card-content">
-                    <h3>Balance</h3>
-                    <p class="amount" id="balance">$0.00</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="recent-transactions">
-            <div class="section-header">
-                <h2>Recent Transactions</h2>
-                <a href="/transactions" class="btn btn-sm">View All</a>
-            </div>
-            <div class="transaction-list" id="recent-transactions">
-                <!-- Transactions will be loaded here via JavaScript -->
-                <div class="empty-state">
-                    <i class="fas fa-receipt"></i>
-                    <p>No transactions yet</p>
-                    <a href="/transactions" class="btn btn-primary">Add Transaction</a>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>

@@ -42,51 +42,53 @@
         </div>
     </header>
 
-    <main class="container">
-        <div class="filters">
-            <div class="filter-group">
-                <label for="type-filter">Type:</label>
-                <select id="type-filter" class="form-control">
-                    <option value="all">All</option>
-                    <option value="income">Income</option>
-                    <option value="expense">Expense</option>
-                </select>
+    <main>
+        <div class="container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="type-filter">Type:</label>
+                    <select id="type-filter" class="form-control">
+                        <option value="all">All</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="category-filter">Category:</label>
+                    <select id="category-filter" class="form-control">
+                        <option value="all">All Categories</option>
+                        <!-- Categories will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="roommate-filter">Roommate:</label>
+                    <select id="roommate-filter" class="form-control">
+                        <option value="all">All Roommates</option>
+                        <!-- Roommates will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="date-filter">Date Range:</label>
+                    <select id="date-filter" class="form-control">
+                        <option value="all">All Time</option>
+                        <option value="this-month">This Month</option>
+                        <option value="last-month">Last Month</option>
+                        <option value="this-year">This Year</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="search">Search:</label>
+                    <input type="text" id="search" class="form-control" placeholder="Search...">
+                </div>
             </div>
-            <div class="filter-group">
-                <label for="category-filter">Category:</label>
-                <select id="category-filter" class="form-control">
-                    <option value="all">All Categories</option>
-                    <!-- Categories will be populated dynamically -->
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="roommate-filter">Roommate:</label>
-                <select id="roommate-filter" class="form-control">
-                    <option value="all">All Roommates</option>
-                    <!-- Roommates will be populated dynamically -->
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="date-filter">Date Range:</label>
-                <select id="date-filter" class="form-control">
-                    <option value="all">All Time</option>
-                    <option value="this-month">This Month</option>
-                    <option value="last-month">Last Month</option>
-                    <option value="this-year">This Year</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="search">Search:</label>
-                <input type="text" id="search" class="form-control" placeholder="Search...">
-            </div>
-        </div>
 
-        <div class="transaction-list" id="transactions-container">
-            <!-- Transactions will be loaded here via JavaScript -->
-            <div class="empty-state">
-                <i class="fas fa-receipt"></i>
-                <p>No transactions yet</p>
-                <button id="empty-add-btn" class="btn btn-primary">Add Transaction</button>
+            <div class="transaction-list" id="transactions-container">
+                <!-- Transactions will be loaded here via JavaScript -->
+                <div class="empty-state">
+                    <i class="fas fa-receipt"></i>
+                    <p>No transactions yet</p>
+                    <button id="empty-add-btn" class="btn btn-primary">Add Transaction</button>
+                </div>
             </div>
         </div>
     </main>

@@ -14,6 +14,7 @@ type Transaction struct {
 	Category    string             `json:"category" bson:"category"`
 	Type        string             `json:"type" bson:"type"` // "income" or "expense"
 	Date        time.Time          `json:"date" bson:"date"`
+	CreatedBy   string             `json:"createdBy" bson:"createdBy"` // Username of the roommate who created the transaction
 	CreatedAt   time.Time          `json:"createdAt" bson:"createdAt"`
 	UpdatedAt   time.Time          `json:"updatedAt" bson:"updatedAt"`
 }
@@ -24,5 +25,6 @@ type TransactionInput struct {
 	Description string  `json:"description" binding:"required"`
 	Category    string  `json:"category" binding:"required"`
 	Type        string  `json:"type" binding:"required,oneof=income expense"`
-	Date        string  `json:"date" binding:"required"` // Format: "2006-01-02"
-} 
+	Date        string  `json:"date" binding:"required"`      // Format: "2006-01-02"
+	CreatedBy   string  `json:"createdBy" binding:"required"` // Username of the roommate who created the transaction
+}

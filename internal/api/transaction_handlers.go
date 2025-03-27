@@ -105,6 +105,7 @@ func createTransactionHandler(c *gin.Context) {
 		Category:    input.Category,
 		Type:        input.Type,
 		Date:        date,
+		CreatedBy:   input.CreatedBy,
 		CreatedAt:   now,
 		UpdatedAt:   now,
 	}
@@ -166,6 +167,7 @@ func updateTransactionHandler(c *gin.Context) {
 			"category":    input.Category,
 			"type":        input.Type,
 			"date":        date,
+			"createdBy":   input.CreatedBy,
 			"updatedAt":   time.Now(),
 		},
 	}

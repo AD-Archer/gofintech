@@ -9,26 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
                 <a href="/">
-                    <i class="fas fa-money-bill-wave"></i> FinTech App
+                    <i class="fas fa-money-bill-wave"></i> Roommate Finances
                 </a>
             </div>
             <div class="navbar-menu">
-                <a href="/">Dashboard</a>
-                <a href="/transactions" class="active">Transactions</a>
+                <a href="/" {{if eq .active "dashboard"}}class="active"{{end}}>Dashboard</a>
+                <a href="/transactions" {{if eq .active "transactions"}}class="active"{{end}}>Transactions</a>
             </div>
         </div>
     </nav>
 
+    <!-- Page Header -->
     <header class="page-header">
         <div class="container">
-            <h1>Transactions</h1>
-            <button id="add-transaction-btn" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Add Transaction
-            </button>
+            <h1>{{.title}}</h1>
+            {{if .showAddButton}}
+                {{if eq .active "dashboard"}}
+                    <a href="/transactions" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </a>
+                {{else}}
+                    <button id="add-transaction-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </button>
+                {{end}}
+            {{end}}
         </div>
     </header>
 
@@ -47,6 +57,13 @@
                 <select id="category-filter" class="form-control">
                     <option value="all">All Categories</option>
                     <!-- Categories will be populated dynamically -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="roommate-filter">Roommate:</label>
+                <select id="roommate-filter" class="form-control">
+                    <option value="all">All Roommates</option>
+                    <!-- Roommates will be populated dynamically -->
                 </select>
             </div>
             <div class="filter-group">
@@ -128,6 +145,14 @@
                             </optgroup>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="createdBy">Added By:</label>
+                        <input type="text" id="createdBy" name="createdBy" class="form-control" required 
+                               placeholder="Enter your name" maxlength="50" pattern="[A-Za-z0-9\s]+"
+                               title="Please enter your name (letters, numbers, and spaces only)">
+                        <small class="form-text text-muted">Enter your name to identify who added this transaction</small>
+                    </div>
                     
                     <div class="form-group">
                         <label for="date">Date:</label>
@@ -162,11 +187,15 @@
 
     <footer>
         <div class="container">
-            <p>&copy; GoFinTech App. All rights reserved.</p>
+            <p>&copy; Roommate Finances. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Load shared utilities first -->
+    <script src="/static/js/utils.js"></script>
+    <!-- Then load main.js which depends on utils.js -->
     <script src="/static/js/main.js"></script>
+    <!-- Finally load page-specific scripts -->
     <script src="/static/js/transactions.js"></script>
 </body>
 </html> 

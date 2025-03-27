@@ -9,25 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
                 <a href="/">
-                    <i class="fas fa-money-bill-wave"></i> FinTech App
+                    <i class="fas fa-money-bill-wave"></i> Roommate Finances
                 </a>
             </div>
             <div class="navbar-menu">
-                <a href="/" class="active">Dashboard</a>
-                <a href="/transactions">Transactions</a>
+                <a href="/" {{if eq .active "dashboard"}}class="active"{{end}}>Dashboard</a>
+                <a href="/transactions" {{if eq .active "transactions"}}class="active"{{end}}>Transactions</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero">
+    <!-- Page Header -->
+    <header class="page-header">
         <div class="container">
-            <h1>GoFinTech</h1>
-            <p>This is sorta a copy of a budget app I created with express, node and mysql, but this time I decided to use Golang as my backend with MongoDB as my database</p>
-            <a href="/transactions" class="btn btn-primary">Manage Transactions</a>
+            <h1>{{.title}}</h1>
+            {{if .showAddButton}}
+                {{if eq .active "dashboard"}}
+                    <a href="/transactions" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </a>
+                {{else}}
+                    <button id="add-transaction-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </button>
+                {{end}}
+            {{end}}
         </div>
     </header>
 
@@ -82,7 +93,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; GoLang FinTech App. All rights reserved.</p>
+            <p>&copy; Roommate Finances. All rights reserved.</p>
         </div>
     </footer>
 

@@ -11,31 +11,31 @@ import (
 
 // Server represents the API server
 type Server struct {
-	router *gin.Engine
+	router     *gin.Engine
 	httpServer *http.Server
 }
 
 // NewServer creates a new API server
 func NewServer() *Server {
 	router := gin.Default()
-	
+
 	// Enable CORS
 	router.Use(corsMiddleware())
-	
+
 	// Serve static files
 	router.Static("/static", "./static")
-	
+
 	// Load HTML templates
-	router.LoadHTMLGlob("templates/*")
-	
+	router.LoadHTMLGlob("templates/*.html")
+
 	// Setup routes
 	setupRoutes(router)
-	
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080" // Default port
 	}
-	
+
 	return &Server{
 		router: router,
 		httpServer: &http.Server{
@@ -71,4 +71,4 @@ func corsMiddleware() gin.HandlerFunc {
 
 		c.Next()
 	}
-} 
+}
